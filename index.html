@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <style>
+            table{
+                border: 2px solid black;
+            }
+            tr{
+                border:2px solid black;
+            }
+            td{
+                border:2px solid black;
+                
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <table border="2px solid black" >
+
+        </table>
+
+        <script>
+
+
+           fetch("https://fakestoreapi.com/products",{
+            method:"get"
+           }).then((data)=>{
+            return data.json()
+           }).then((data)=>{
+
+            for(i=0;i<data.length;i++){
+
+            var tab=document.getElementsByTagName("table");
+            //tab.style.border="2px solid black"
+            console.log(tab);
+
+
+           // for(i=0;i<data.length;i++){
+
+            var trr=document.createElement("tr");
+            
+            var tdd=document.createElement("td");
+            tdd.innerText=data[i].id;
+            //tdd.style.border="2px solid black"
+            trr.appendChild(tdd);
+            tab[0].appendChild(trr);
+
+            var tdd1=document.createElement("td");
+            tdd1.innerText=data[i].title;
+            trr.appendChild(tdd1);
+            tab[0].appendChild(trr);
+
+            var tdd2=document.createElement("td");
+            tdd2.innerText=data[i].price;
+            trr.appendChild(tdd2);
+            tab[0].appendChild(trr);
+
+            var tdd3=document.createElement("td");
+            tdd3.innerText=data[i].description;
+            trr.appendChild(tdd3);
+            tab[0].appendChild(trr);
+
+            tdd4=document.createElement("td");
+
+            var imgg=document.createElement("img");
+            imgg.setAttribute("src",data[i].image);
+            imgg.style.width="100px";
+            imgg.style.height="100px";
+
+            tdd4.appendChild(imgg);
+            trr.appendChild(tdd4);
+            tab[0].appendChild(trr);
+
+            var tdd5=document.createElement("td");
+            tdd5.innerText=data[i].category;
+            trr.appendChild(tdd5);
+            tab[0].appendChild(trr);
+
+            var tdd6=document.createElement("td");
+            tdd6.innerText=data[i].rating.rate;
+            trr.appendChild(tdd6);
+            tab[0].appendChild(trr);
+
+            var tdd7=document.createElement("td");
+            tdd7.innerText=data[i].rating.count;
+            trr.appendChild(tdd7);
+            tab[0].appendChild(trr);
+
+            }
+            
+            console.log(data);
+
+        })
+            //var arr=[];
+
+
+            //for(i=0;i<data.length;i++){
+               // if(data[i].price>50){
+                   // arr.push(data[i])
+                //}
+
+            //}
+
+           //})
+
+
+           //console.log(data);
+            //console.log(val);
+            //val.json()
+
+           //})
+        </Script>
+
+    </body>
+</html>
